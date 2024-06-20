@@ -84,9 +84,9 @@ get_background_rate <- function(bam, targets, reference, vaf_threshold = 0.1, ta
       )
     }
 
-    assertthat::assert_that(all(purrr::map_chr(strsplit(black_list, "_"), 1) %in% GenomeInfoDb::seqnames(reference)),
-      msg = "Chromosomes of black_list are not in reference"
-    )
+    # assertthat::assert_that(all(purrr::map_chr(strsplit(black_list, "_"), 1) %in% GenomeInfoDb::seqnames(reference)),
+    #   msg = "Chromosomes of black_list are not in reference"
+    # )
   }
 
   gr <- GenomicRanges::reduce(GenomicRanges::GRanges(

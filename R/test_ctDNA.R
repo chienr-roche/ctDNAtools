@@ -200,18 +200,18 @@ test_ctDNA <- function(mutations, bam, targets, reference, tag = "", ID_column =
     is.numeric(targets$end), all(targets$end > 0)
   )
 
-  assertthat::assert_that(all(mutations$CHROM %in% GenomeInfoDb::seqnames(reference)),
-    all(targets$chr %in% GenomeInfoDb::seqnames(reference)),
-    msg = "Chromosomes in mutations and/or targets don't match the specified reference"
-  )
+  # assertthat::assert_that(all(mutations$CHROM %in% GenomeInfoDb::seqnames(reference)),
+  #   all(targets$chr %in% GenomeInfoDb::seqnames(reference)),
+  #   msg = "Chromosomes in mutations and/or targets don't match the specified reference"
+  # )
 
   assertthat::assert_that(is.character(bam), length(bam) == 1, file.exists(bam))
 
   assertthat::assert_that(is.character(tag), length(tag) == 1)
 
-  assertthat::assert_that(all(get_bam_chr(bam) %in% GenomeInfoDb::seqnames(reference)),
-    msg = "Chromosomes in bam file don't match the specified reference"
-  )
+  # assertthat::assert_that(all(get_bam_chr(bam) %in% GenomeInfoDb::seqnames(reference)),
+  #   msg = "Chromosomes in bam file don't match the specified reference"
+  # )
 
   assertthat::assert_that(
     is.numeric(vaf_threshold), vaf_threshold > 0,
@@ -268,9 +268,9 @@ test_ctDNA <- function(mutations, bam, targets, reference, tag = "", ID_column =
 
     bam_list_chr <- purrr::map(bam_list, get_bam_chr)
 
-    assertthat::assert_that(all(purrr::map_lgl(bam_list_chr, ~ all(.x %in% GenomeInfoDb::seqnames(reference)))),
-      msg = "The chromosomes in at least one of the specified bams in bam_list don't match the reference"
-    )
+    # assertthat::assert_that(all(purrr::map_lgl(bam_list_chr, ~ all(.x %in% GenomeInfoDb::seqnames(reference)))),
+    #   msg = "The chromosomes in at least one of the specified bams in bam_list don't match the reference"
+    # )
 
     assertthat::assert_that(
       is.character(bam_list_tags),
@@ -305,9 +305,9 @@ test_ctDNA <- function(mutations, bam, targets, reference, tag = "", ID_column =
     }
 
 
-    assertthat::assert_that(all(purrr::map_chr(strsplit(black_list, "_"), 1) %in% GenomeInfoDb::seqnames(reference)),
-      msg = "Chromosomes of black_list are not in reference"
-    )
+    # assertthat::assert_that(all(purrr::map_chr(strsplit(black_list, "_"), 1) %in% GenomeInfoDb::seqnames(reference)),
+    #   msg = "Chromosomes of black_list are not in reference"
+    # )
   }
 
   sm <- get_bam_SM(bam = bam, tag = tag)

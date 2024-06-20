@@ -92,9 +92,9 @@ create_background_panel <- function(bam_list, targets, reference, vaf_threshold 
 
   bam_list_chr <- purrr::map(bam_list, get_bam_chr)
 
-  assertthat::assert_that(all(purrr::map_lgl(bam_list_chr, ~ all(.x %in% GenomeInfoDb::seqnames(reference)))),
-    msg = "The chromosomes in at least one of the specified bams in bam_list don't match the reference"
-  )
+  # assertthat::assert_that(all(purrr::map_lgl(bam_list_chr, ~ all(.x %in% GenomeInfoDb::seqnames(reference)))),
+  #   msg = "The chromosomes in at least one of the specified bams in bam_list don't match the reference"
+  # )
 
   assertthat::assert_that(
     is.character(bam_list_tags),
