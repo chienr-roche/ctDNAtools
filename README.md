@@ -18,17 +18,19 @@ The tools cover analysis of ctDNA/cfDNA fragmentation and analysis of cancer min
 
 <a href='https:/alkodsi.github.io/ctDNAtools'><img src='man/figures/ctDNAtools_overview.png' align="center" height="680" /></a>
 
+
+## Notes
+This fork of the ctDNAtools package has reference genome checks disabled to allow compatibility of references beyond BSgenome versions.
+
+
 ## Installation
 
 
 ``` r
-# From CRAN
-install.packages("ctDNAtools")
-
 # From github
 
 # install.packages("devtools")
-devtools::install_github("alkodsi/ctDNAtools")
+devtools::install_github("chienr-roche/ctDNAtools")
 ```
 
 ## Getting started
